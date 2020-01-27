@@ -17,15 +17,23 @@
         <Button Content="Ajouter" HorizontalAlignment="Left" Margin="666,65,0,0" VerticalAlignment="Top" Width="95" Height="24" Click="AddClient_Click"/>
         <Label Content="N° de compte" HorizontalAlignment="Left" Margin="277,118,0,0" VerticalAlignment="Top"/>
         <Label Content="Téléphone" HorizontalAlignment="Left" Margin="37,120,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="371,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="117,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="532,118,0,0" VerticalAlignment="Top" Width="95" Height="24"/>
+        <TextBox x:Name="SearchByNumber" HorizontalAlignment="Left" Height="23" Margin="371,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SearchByTel" HorizontalAlignment="Left" Height="23" Margin="117,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="532,118,0,0" VerticalAlignment="Top" Width="95" Height="24" Click="SearchClient_Click"/>
         <Label Content="Liste des opérations :" HorizontalAlignment="Left" Margin="37,232,0,0" VerticalAlignment="Top"/>
-        <DataGrid Margin="37,272,22,130.4"></DataGrid>
+        <ListView x:Name="listeViewOperation" Margin="10,263,10.4,113" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Date Operation" Width="250" DisplayMemberBinding="{Binding DateOpe}"></GridViewColumn>
+                    <GridViewColumn Header="Montant" Width="250" DisplayMemberBinding="{Binding Montant}"></GridViewColumn>
+                    <GridViewColumn Header="Solde" Width="250" DisplayMemberBinding="{Binding Solde}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Label Content="Résultat de recherche :" HorizontalAlignment="Left" Margin="47,177,0,0" VerticalAlignment="Top"/>
-        <Label Content="Aucun compte retrouvé" HorizontalAlignment="Left" Margin="190,177,0,0" VerticalAlignment="Top"/>
-        <Button Content="Dépôt" HorizontalAlignment="Left" Margin="134,508,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.429,-0.469" Height="36"/>
-        <Button Content="Retrait" HorizontalAlignment="Left" Margin="406,508,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.429,-0.469" Height="36"/>
+        <Label x:Name="ResultatRecherche" Content="Aucun compte retrouvé" HorizontalAlignment="Left" Margin="190,177,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="depot" Content="Dépôt" HorizontalAlignment="Left" Margin="134,508,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.429,-0.469" Height="36" Click="Depot_Click"/>
+        <Button x:Name="retrait" Content="Retrait" HorizontalAlignment="Left" Margin="406,508,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.429,-0.469" Height="36" Click="Retrait_Click"/>
 
 
     </Grid>

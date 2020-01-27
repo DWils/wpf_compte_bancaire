@@ -26,6 +26,12 @@ namespace tp_compte_bancaire_wpf
             InitializeComponent();
         }
 
+        public MainWindow(Classes.Operation operation) : this()
+        {
+            Classes.Operation.listeOpe.Add(operation);
+            listeViewOperation.ItemsSource = Classes.Operation.listeOpe;
+        }
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -33,8 +39,6 @@ namespace tp_compte_bancaire_wpf
 
         private void AddClient_Click(object sender, RoutedEventArgs e)
         {
-
-
             try
             {
                 Client client = new Client() { Nom = nom.Text, Prenom = prenom.Text, Telephone = tel.Text };
@@ -49,7 +53,33 @@ namespace tp_compte_bancaire_wpf
 
                 MessageBox.Show("Erreur");
             }
+        }
 
+        private void SearchClient_Click(object sender, RoutedEventArgs e)
+        {
+            Client client = new Client() { Telephone = SearchByTel.Text};
+            int numcompte;
+            Int32.TryParse(SearchByNumber.Text, out numcompte);
+            Compte compte = new Compte() { Numero = numcompte };
+            if (SearchByTel != null)
+            {
+                
+                ResultatRecherche.Content = client.GetClientAndCompteByTel(client.Telephone);
+            }
+            else if (SearchByNumber != null)
+            {
+
+                ResultatRecherche.Content = client.GetClientAndCompteByNumeroCompte(compte.Numero);
+            }
+        }
+
+        private void Depot_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Retrait_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

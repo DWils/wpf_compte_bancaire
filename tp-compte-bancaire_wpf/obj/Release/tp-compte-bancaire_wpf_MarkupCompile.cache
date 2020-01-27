@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\david\Desktop\tpCB\tp-compte-bancaire_wpf\obj\Debug\
+C:\Users\david\Desktop\tpCB\tp-compte-bancaire_wpf\obj\Release\
 tp_compte_bancaire_wpf
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\david\Desktop\tpCB\tp-compte-bancaire_wpf\App.xaml
 2-558566183
 
@@ -16,5 +16,5 @@ C:\Users\david\Desktop\tpCB\tp-compte-bancaire_wpf\App.xaml
 13738642453
 MainWindow.xaml;Operation.xaml;
 
-False
+True
 

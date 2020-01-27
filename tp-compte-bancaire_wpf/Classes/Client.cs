@@ -76,45 +76,49 @@ namespace tp_compte_bancaire_wpf.Classes
         }
 
 
-        public Client GetClientByTel(string tel)
+        public string GetClientAndCompteByTel(string tel)
         {
-            Client c = new Client();
-            
-            command = new SqlCommand("SELECT nom, prenom from bank_client where tel = @tel", Configuration.connection);
+            Compte co = new Compte();
+            Client cl = new Client();
+
+            command = new SqlCommand("SELECT nom, prenom , solde  from bank_client as client inner join  bank_compte as compte on compte.idClient = client.id where telephone = @tel", Configuration.connection);
             command.Parameters.Add(new SqlParameter("@tel", tel));
             Configuration.connection.Open();
             reader = command.ExecuteReader();
             if (reader.Read())
             {
-                c.Nom = reader.GetString(0);
-                c.Prenom = reader.GetString(1);
-                c.Telephone = tel;
+                cl.Nom = reader.GetString(0);
+                cl.Prenom = reader.GetString(1);
+                co.Solde = reader.GetDecimal(2);
+                cl.Telephone = tel;
             }
             command.Dispose();
             Configuration.connection.Close();
-            return c;
+            return $" { cl.Nom } { cl.Prenom } { co.Solde}";
         }
 
 
-        public Client GetClientByNumberCompte(int numero)
+        public string GetClientAndCompteByNumeroCompte(int numero)
         {
             Compte co = new Compte();
-            Client c = new Client();
+            Client cl = new Client();
 
-            command = new SqlCommand("SELECT idClient , solde from bank_compte where numero = @numero", Configuration.connection);
+            command = new SqlCommand("SELECT nom, prenom , solde  from bank_client as client inner join  bank_compte as compte on compte.idClient = client.id where numero = @numero", Configuration.connection);
             command.Parameters.Add(new SqlParameter("@numero", numero));
             Configuration.connection.Open();
             reader = command.ExecuteReader();
             if (reader.Read())
             {
-                co.IdClient = reader.GetInt32(0);
-                co.Solde = reader.GetDecimal(1);
+                cl.Nom = reader.GetString(0);
+                cl.Prenom = reader.GetString(1); 
+                co.Solde = reader.GetDecimal(2);
                 co.Numero = numero;
             }
             command.Dispose();
             Configuration.connection.Close();
             // resultat de la recherche ici
-            return c;
+            return $" { cl.Nom } { cl.Prenom } { co.Solde}";
+
         }
 
 
