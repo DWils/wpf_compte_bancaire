@@ -1,0 +1,32 @@
+﻿<Window x:Class="tp_compte_bancaire_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tp_compte_bancaire_wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="0,0,-0.4,-30">
+        <Label Content="Ajouter un client" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="32,62,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prénom" HorizontalAlignment="Left" Margin="225,63,0,0" VerticalAlignment="Top"/>
+        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="427,59,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="292,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="507,63,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="666,65,0,0" VerticalAlignment="Top" Width="95" Height="24"/>
+        <Label Content="N° de compte" HorizontalAlignment="Left" Margin="277,118,0,0" VerticalAlignment="Top"/>
+        <Label Content="Téléphone" HorizontalAlignment="Left" Margin="37,120,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="371,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="117,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Button Content="Rechercher" HorizontalAlignment="Left" Margin="532,118,0,0" VerticalAlignment="Top" Width="95" Height="24"/>
+        <Label Content="Liste des opérations :" HorizontalAlignment="Left" Margin="37,232,0,0" VerticalAlignment="Top"/>
+        <DataGrid Margin="37,272,22,130.4"></DataGrid>
+        <Label Content="Résultat de recherche :" HorizontalAlignment="Left" Margin="47,177,0,0" VerticalAlignment="Top"/>
+        <Label Content="Aucun compte retrouvé" HorizontalAlignment="Left" Margin="190,177,0,0" VerticalAlignment="Top"/>
+        <Button Content="Dépôt" HorizontalAlignment="Left" Margin="134,508,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.429,-0.469" Height="36"/>
+        <Button Content="Retrait" HorizontalAlignment="Left" Margin="406,508,0,0" VerticalAlignment="Top" Width="157" RenderTransformOrigin="-0.429,-0.469" Height="36"/>
+
+
+    </Grid>
+</Window>
